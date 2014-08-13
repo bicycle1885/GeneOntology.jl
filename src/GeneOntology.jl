@@ -1,5 +1,10 @@
 module GeneOntology
 
-# package code goes here
+export Term, OBOParser,
+       CellularComponent, BiologicalProcess, MolecularFunction,
+       eachterm
 
-end # module
+include("term.jl")
+include("parser.jl")
+
+end # GeneOntology module

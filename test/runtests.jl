@@ -1,5 +1,5 @@
 using GeneOntology
 using Base.Test
 
-# write your own tests here
-@test 1 == 1
+include("test_term.jl")
+include("test_parser.jl")
