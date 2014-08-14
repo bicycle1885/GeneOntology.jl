@@ -14,7 +14,7 @@ type OBOParser
     function OBOParser(filepath::String)
         stream = open(filepath, "r")
         finalizer(stream, s -> close(s))
-        headertags = header(stream)
+        headertags = parse_header(stream)
         haskey(headertags, "format-version") || error("required tag 'format-version' does not exist")
         version = headertags["format-version"]
         new(Normal, filepath, stream, version, headertags)
@@ -48,12 +48,6 @@ eachterm(parser::OBOParser) = EachTerm(parser.mode, parser.stream)
 start(iter::EachTerm) = iter.stream
 
 done(iter::EachTerm, s) = !seekstanza(s, "[Term]")
-    #for line in eachline(s)
-    #    if rstrip(line) == "[Term]"
-    #        return false
-    #    end
-    #end
-    #true
 
 macro checktag(tag)
     quote
@@ -143,7 +137,9 @@ function tagvalue(line::ASCIIString)
     return tag, value, true
 end
 
-function header(stream::IOStream)
+# parsers
+
+function parse_header(stream::IOStream)
     pairs = Dict{ASCIIString,String}()
     for line in eachline(stream)
         line = rstrip(line)
@@ -154,8 +150,6 @@ function header(stream::IOStream)
     end
     pairs
 end
-
-# parsers
 
 function parse_def(s::ASCIIString)
     i = searchindex(s, "\"")
