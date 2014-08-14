@@ -970,3 +970,17 @@ is_a: GO:0044839 ! cell cycle G2/M phase transition
 intersection_of: GO:0044839 ! cell cycle G2/M phase transition
 intersection_of: part_of GO:0000278 ! mitotic cell cycle
 
+[Typedef]
+id: ends_during
+name: ends_during
+namespace: external
+xref: RO:0002093
+
+[Typedef]
+id: happens_during
+name: happens_during
+namespace: external
+xref: RO:0002092
+is_transitive: true
+is_a: ends_during ! ends_during
+

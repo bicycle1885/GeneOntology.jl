@@ -26,18 +26,34 @@ type EachTerm
     stream::IO
 end
 
-eachterm(parser::OBOParser) = EachTerm(parser.mode, parser.stream)
-
-Base.start(iter::EachTerm) = iter.stream
-
-function Base.done(iter::EachTerm, s)
+function seekstanza(s::IO, target::ASCIIString)
+    mark(s)
     for line in eachline(s)
-        if rstrip(line) == "[Term]"
-            return false
+        if line[1] == '['
+            if rstrip(line) == target
+                unmark(s)
+                return true
+            else
+                reset(s)
+                return false
+            end
         end
     end
-    true
+    false
 end
+
+import Base: start, done, next
+
+eachterm(parser::OBOParser) = EachTerm(parser.mode, parser.stream)
+start(iter::EachTerm) = iter.stream
+
+done(iter::EachTerm, s) = !seekstanza(s, "[Term]")
+    #for line in eachline(s)
+    #    if rstrip(line) == "[Term]"
+    #        return false
+    #    end
+    #end
+    #true
 
 macro checktag(tag)
     quote
@@ -46,9 +62,10 @@ macro checktag(tag)
     end
 end
 
-function Base.next(iter::EachTerm, s)
+function next(iter::EachTerm, s)
     pairs = Dict{ASCIIString,ASCIIString}()
     is_a = ASCIIString[]
+    obsolete = false
 
     for line in eachline(s)
         line = rstrip(line)
@@ -57,6 +74,8 @@ function Base.next(iter::EachTerm, s)
         ok || error("cannot find a tag $(position(stream))")
         if tag == "is_a"
             push!(is_a, value)
+        elseif tag == "is_obsolete"
+            obsolete = value == "true" ? true : false
         else
             pairs[tag] = value
         end
@@ -67,14 +86,42 @@ function Base.next(iter::EachTerm, s)
     name = @checktag "name"
 
     if iter.mode == Minimal
-        return Term(id, name), s
+        return Term(id, name, obsolete=obsolete), s
     elseif iter.mode == Normal || iter.mode == Full
         namespace = @checktag "namespace"
         def = parse_def(@checktag "def")
-        return Term(id, name, namespace, def, is_a), s
+        return Term(id, name, namespace, def, is_a, obsolete=obsolete), s
     end
 
     @assert false "unsupported mode"
+end
+
+type EachTypedef
+    stream::IO
+end
+
+eachtypedef(parser::OBOParser) = EachTypedef(parser.stream)
+start(iter::EachTypedef) = iter.stream
+done(iter::EachTypedef, s) = !seekstanza(s, "[Typedef]")
+
+function next(iter::EachTypedef, s)
+    local id, name, namespace, xref
+    for line in eachline(s)
+        line = rstrip(line)
+        isempty(line) && break
+        tag, value, ok = tagvalue(line)
+        ok || error("cannot find a tag $(position(stream))")
+        if tag == "id"
+            id = value
+        elseif tag == "name"
+            name = value
+        elseif tag == "namespace"
+            namespace = value
+        elseif tag == "xref"
+            xref = value
+        end
+    end
+    Typedef(id, name, namespace, xref), s
 end
 
 function tagvalue(line::ASCIIString)
@@ -107,6 +154,8 @@ function header(stream::IOStream)
     end
     pairs
 end
+
+# parsers
 
 function parse_def(s::ASCIIString)
     i = searchindex(s, "\"")
