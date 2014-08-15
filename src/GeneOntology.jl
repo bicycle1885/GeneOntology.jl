@@ -13,7 +13,7 @@ export
     OBOParser, eachterm, eachtypedef,
 
     # graph
-    gograph
+    gograph, is_a
 
 include("term.jl")
 include("typedef.jl")

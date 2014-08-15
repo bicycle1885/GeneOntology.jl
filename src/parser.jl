@@ -5,19 +5,20 @@ const Normal = 2
 const Full = 3
 
 type OBOParser
-    mode::Int  # 1: minimal, 2: normal (default), 3: full
+    mode::Int  # 1: Minimal, 2: Normal (default), 3: Full
     filepath::String
     stream::IOStream
     version::ASCIIString
     headertags::Dict{ASCIIString,String}
 
-    function OBOParser(filepath::String)
+    function OBOParser(filepath::String; mode::Int=Normal)
+        1 <= mode <= 3 || error("invalid mode: $mode")
         stream = open(filepath, "r")
         finalizer(stream, s -> close(s))
         headertags = parse_header(stream)
         haskey(headertags, "format-version") || error("required tag 'format-version' does not exist")
         version = headertags["format-version"]
-        new(Normal, filepath, stream, version, headertags)
+        new(mode, filepath, stream, version, headertags)
     end
 end
 
@@ -65,7 +66,7 @@ function next(iter::EachTerm, s)
         line = rstrip(line)
         isempty(line) && break
         tag, value, ok = tagvalue(line)
-        ok || error("cannot find a tag $(position(stream))")
+        ok || error("cannot find a tag (position: $(position(s)))")
         if tag == "is_a"
             push!(is_a, value)
         elseif tag == "is_obsolete"
