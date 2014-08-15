@@ -1,8 +1,6 @@
-macro test_isa(term1, term2)
-    quote
-        @test is_a(go, term1, term2)
-        @test !is_a(go, term2, term1)
-    end
+function test_isa(go, term1, term2)
+    @test is_a(go, term1, term2)
+    @test !is_a(go, term2, term1)
 end
 
 let
@@ -12,10 +10,10 @@ let
     term4 = Term("GO:0000004", "four")
     term5 = Term("GO:0000005", "five")
 
-    @test_isa term1 term2
-    @test_isa term4 term2
-    @test_isa term5 term4
-    @test_isa term5 term2
+    test_isa(go, term1, term2)
+    test_isa(go, term4, term2)
+    test_isa(go, term5, term4)
+    test_isa(go, term5, term2)
 
     @test !is_a(go, term1, term5)
     @test !is_a(go, term5, term1)
