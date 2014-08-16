@@ -4,7 +4,7 @@ export
     # term
     Term,
     cellular_component, biological_process, molecular_function,
-    isobsolete,
+    isobsolete, @go_str,
 
     # typedef
     Typedef,

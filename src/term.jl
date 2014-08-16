@@ -21,6 +21,8 @@ immutable Term
     synonyms::Vector{String}
     tags::Dict{ASCIIString,String}
 
+    Term(id::ASCIIString) = new(parseid(id))
+
     # Required two fields defined in 'The OBO Flat File Format Specification, version 1.2'
     # link: http://geneontology.org/GO.format.obo-1_2.shtml
     function Term(id::ASCIIString, name::ASCIIString; obsolete::Bool=false)
@@ -40,6 +42,10 @@ immutable Term
     end
 end
 
+macro go_str(s)
+    Term(s)
+end
+
 import Base: ==
 
 Base.isequal(term1::Term, term2::Term) = term1.id == term2.id
@@ -51,10 +57,10 @@ Base.showcompact(io::IO, term::Term) = @printf io "GO:%07d" term.id
 
 isobsolete(term::Term) = term.obsolete
 
-const termid_re = r"^GO:(\d{7})$"
-
 function parseid(id::ASCIIString)
-    m = match(termid_re, id)
+    # The term id is defined as zero-padded 7 decimal digits,
+    # which may be preceded by "GO:" string.
+    m = match(r"^(?:GO:)?(\d{7})$", id)
     is(m, nothing) && error("invalid term id: '$id'")
     int(m.captures[1])
 end
