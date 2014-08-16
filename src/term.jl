@@ -13,21 +13,21 @@ const molecular_function = MolecularFunctionOntology()
 
 immutable Term
     id::Int
-    name::ASCIIString
     obsolete::Bool
+    name::ASCIIString
     namespace::RootOntology
     def::ASCIIString
     isa::Vector{Int}
     synonyms::Vector{String}
     tags::Dict{ASCIIString,String}
 
-    Term(id::ASCIIString) = new(parseid(id))
+    Term(id::ASCIIString; obsolete::Bool=false) = new(parseid(id), obsolete)
 
     # Required two fields defined in 'The OBO Flat File Format Specification, version 1.2'
     # link: http://geneontology.org/GO.format.obo-1_2.shtml
     function Term(id::ASCIIString, name::ASCIIString; obsolete::Bool=false)
         id_ = parseid(id)
-        new(id_, name, obsolete)
+        new(id_, obsolete, name)
     end
 
     # Essential five elements defined in 'Ontology Structure'
@@ -38,7 +38,7 @@ immutable Term
         id_ = parseid(id)
         namespace_ = namespaceof(namespace)
         isa_ = [parseid(id) for id in isa]
-        new(id_, name, obsolete, namespace_, def, isa_)
+        new(id_, obsolete, name, namespace_, def, isa_)
     end
 end
 
