@@ -17,4 +17,14 @@ let
 
     @test !is_a(go, term1, term5)
     @test !is_a(go, term5, term1)
+
+    @test parents(go, term1) == [term2]
+    @test isempty(parents(go, term2))
+    @test parents(go, term4) == [term2]
+    @test parents(go, term5) == [term4]
+
+    @test isempty(children(go, term1))
+    @test children(go, term2) == [term1, term4]
+    @test children(go, term4) == [term5]
+    @test isempty(children(go, term5))
 end

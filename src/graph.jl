@@ -59,6 +59,12 @@ function binary_search(ids::Vector{Int}, id::Int)
     0
 end
 
+function search_vertex(go::GOGraph, term::Term)
+    id = binary_search(go.ids, term.id)
+    id == 0 && error("term $term does not exist in the ontology graph")
+    TermVertex(id, term)
+end
+
 function gograph(filepath::String; mode::Int=2)
     parser = OBOParser(filepath, mode=mode)
     terms = Term[]
@@ -95,4 +101,14 @@ function gograph(filepath::String; mode::Int=2)
     end
 
     GOGraph(ids, upward, downward)
+end
+
+function parents(go::GOGraph, term::Term)
+    v = search_vertex(go, term)
+    Term[p.key for p in out_neighbors(v, go.upward)]
+end
+
+function children(go::GOGraph, term::Term)
+    v = search_vertex(go, term)
+    Term[p.key for p in out_neighbors(v, go.downward)]
 end
