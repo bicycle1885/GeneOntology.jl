@@ -4,7 +4,7 @@ function test_isa(go, term1, term2)
 end
 
 let
-    go = gograph("test/data/go_mini.obo")
+    go = GOGraph("test/data/go_mini.obo")
     term1 = Term("GO:0000001", "one")
     term2 = Term("GO:0000002", "two")
     term4 = Term("GO:0000004", "four")

@@ -11,6 +11,11 @@ type GOGraph
     ids::Vector{Int}
     upward::IncidenceList{TermVertex,Edge{TermVertex}}
     downward::IncidenceList{TermVertex,Edge{TermVertex}}
+
+    function GOGraph(filepath::String; mode::Int=2)
+        ids, upward, downward = gograph_builder(filepath, mode)
+        new(ids, upward, downward)
+    end
 end
 
 type ISAVisitor <: AbstractGraphVisitor
@@ -65,7 +70,7 @@ function search_vertex(go::GOGraph, term::Term)
     TermVertex(id, term)
 end
 
-function gograph(filepath::String; mode::Int=2)
+function gograph_builder(filepath::String, mode::Int)
     parser = OBOParser(filepath, mode=mode)
     terms = Term[]
 
@@ -100,7 +105,7 @@ function gograph(filepath::String; mode::Int=2)
         end
     end
 
-    GOGraph(ids, upward, downward)
+    ids, upward, downward
 end
 
 function parents(go::GOGraph, term::Term)
