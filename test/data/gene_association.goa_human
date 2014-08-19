@@ -1,0 +1,100 @@
+!GOC Validation Date: 07/10/2014 $
+!Submission Date: 7/10/2014
+!
+! The above "Submission Date" is when the annotation project provided
+! this file to the Gene Ontology Consortium (GOC).  The "GOC Validation
+! Date" indicates when this file was last changed as a result of a GOC
+! validation and filtering process.  
+!
+! Note: The contents of this file may differ from that submitted to the
+! GOC. The identifiers and syntax of the file have been checked, rows of
+! data not meeting the standards set by the GOC have been removed. This
+! file may also have annotations removed because the annotations for the
+! listed Taxonomy identifier are only allowed in a file provided by
+! another annotation project.  The original submitted file is available from:
+!  http://www.geneontology.org/gene-associations/submission/
+!
+! For information on which taxon are allowed in which files please see:
+!  http://www.geneontology.org/GO.annotation.shtml#script
+!
+!gaf-version: 2.0
+!Project_name: UniProt GO Annotation program (UniProt-GOA)
+!URL: http://www.ebi.ac.uk/GOA
+!Contact Email: goa@ebi.ac.uk
+!
+!The set of protein accessions included in this file is based on UniProt complete proteomes, which may provide more than one protein per gene.
+!They include all Swiss-Prot entries for the species plus any TrEMBL entries that have an Ensembl DR line. The TrEMBL entries are likely to overlap with the Swiss-Prot entries or their isoforms.
+!If a particular protein accession is not annotated with GO, then it will not appear in this file.
+!
+!Note that the annotation set in this file is filtered in order to reduce redundancy; the full, unfiltered set can be found in
+!ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/UNIPROT/gene_association.goa_uniprot.gz
+!
+!Generated: 2014-07-08 13:30
+!
+UniProtKB	A0A183	LCE6A		GO:0031424	GO_REF:0000037	IEA	UniProtKB-KW:KW-0417	P	Late cornified envelope protein 6A	LCE6A_HUMAN|LCE6A|C1orf44	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0A5B9	TRBC2		GO:0016021	GO_REF:0000037	IEA	UniProtKB-KW:KW-0812	C	T-cell receptor beta-2 chain C region	TRBC2_HUMAN|TRBC2|TCRBC2	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AUZ9	KANSL1L		GO:0000123	GO_REF:0000002	IEA	InterPro:IPR026180	C	KAT8 regulatory NSL complex subunit 1-like protein	KAL1L_HUMAN|KANSL1L|C2orf67	protein	taxon:9606	20140705	InterPro		
+UniProtKB	A0AV02	SLC12A8		GO:0006813	GO_REF:0000037	IEA	UniProtKB-KW:KW-0633	P	Solute carrier family 12 member 8	S12A8_HUMAN|SLC12A8|CCC9	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AV02	SLC12A8		GO:0015293	GO_REF:0000037	IEA	UniProtKB-KW:KW-0769	F	Solute carrier family 12 member 8	S12A8_HUMAN|SLC12A8|CCC9	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AV02	SLC12A8		GO:0016021	GO_REF:0000037	IEA	UniProtKB-KW:KW-0812	C	Solute carrier family 12 member 8	S12A8_HUMAN|SLC12A8|CCC9	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AV02	SLC12A8		GO:0055085	GO_REF:0000002	IEA	InterPro:IPR004841	P	Solute carrier family 12 member 8	S12A8_HUMAN|SLC12A8|CCC9	protein	taxon:9606	20140705	InterPro		
+UniProtKB	A0AV96	RBM47		GO:0000166	GO_REF:0000002	IEA	InterPro:IPR012677	F	RNA-binding protein 47	RBM47_HUMAN|RBM47	protein	taxon:9606	20140705	InterPro		
+UniProtKB	A0AV96	RBM47		GO:0005634	GO_REF:0000039	IEA	UniProtKB-SubCell:SL-0191	C	RNA-binding protein 47	RBM47_HUMAN|RBM47	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AV96	RBM47		GO:0044822	PMID:22658674	IDA		F	RNA-binding protein 47	RBM47_HUMAN|RBM47	protein	taxon:9606	20140203	UniProt		
+UniProtKB	A0AV96	RBM47		GO:0044822	PMID:22681889	IDA		F	RNA-binding protein 47	RBM47_HUMAN|RBM47	protein	taxon:9606	20140203	UniProt		
+UniProtKB	A0AVF1	TTC26		GO:0036064	GO_REF:0000019	IEA	Ensembl:ENSMUSP00000124369	C	Tetratricopeptide repeat protein 26	TTC26_HUMAN|TTC26	protein	taxon:9606	20140705	Ensembl		
+UniProtKB	A0AVF1	TTC26		GO:0042384	GO_REF:0000024	ISS	UniProtKB:Q8BS45	P	Tetratricopeptide repeat protein 26	TTC26_HUMAN|TTC26	protein	taxon:9606	20120730	UniProt		
+UniProtKB	A0AVF1	TTC26		GO:0072372	GO_REF:0000024	ISS	UniProtKB:Q8BS45	C	Tetratricopeptide repeat protein 26	TTC26_HUMAN|TTC26	protein	taxon:9606	20120730	UniProt		
+UniProtKB	A0AVI2	FER1L5		GO:0005886	GO_REF:0000039	IEA	UniProtKB-SubCell:SL-0039	C	Fer-1-like protein 5	FR1L5_HUMAN|FER1L5	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AVI2	FER1L5		GO:0016021	GO_REF:0000037	IEA	UniProtKB-KW:KW-0812	C	Fer-1-like protein 5	FR1L5_HUMAN|FER1L5	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AVI4	TMEM129		GO:0003674	GO_REF:0000015	ND		F	Transmembrane protein 129	TM129_HUMAN|TMEM129	protein	taxon:9606	20090107	UniProt		
+UniProtKB	A0AVI4	TMEM129		GO:0005575	GO_REF:0000015	ND		C	Transmembrane protein 129	TM129_HUMAN|TMEM129	protein	taxon:9606	20090107	UniProt		
+UniProtKB	A0AVI4	TMEM129		GO:0008150	GO_REF:0000015	ND		P	Transmembrane protein 129	TM129_HUMAN|TMEM129	protein	taxon:9606	20090107	UniProt		
+UniProtKB	A0AVI4	TMEM129		GO:0016021	GO_REF:0000037	IEA	UniProtKB-KW:KW-0812	C	Transmembrane protein 129	TM129_HUMAN|TMEM129	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0000122	GO_REF:0000024	ISS	UniProtKB:Q58FA4	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0000122	PMID:16179649	IDA		P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20140322	NTNU_SB	has_regulation_target(NCBI_Gene:1869)	
+UniProtKB	A0AVK6	E2F8		GO:0000978	PMID:16179649	IDA		F	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20131029	NTNU_SB		
+UniProtKB	A0AVK6	E2F8		GO:0001047	PMID:22903062	IDA		F	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0001078	PMID:16179649	IDA		F	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20131013	NTNU_SB		
+UniProtKB	A0AVK6	E2F8		GO:0001890	GO_REF:0000024	ISS	UniProtKB:Q58FA4	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0002040	PMID:22903062	IMP		P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0003700	PMID:22903062	IMP		F	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0003714	GO_REF:0000024	ISS	UniProtKB:Q58FA4	F	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0005515	PMID:18202719	IPI	UniProtKB:Q96AV8	F	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20140708	IntAct		
+UniProtKB	A0AVK6	E2F8		GO:0005634	GO_REF:0000039	IEA	UniProtKB-SubCell:SL-0191	C	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0005667	GO_REF:0000002	IEA	InterPro:IPR003316	C	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20140705	InterPro		
+UniProtKB	A0AVK6	E2F8		GO:0006351	GO_REF:0000037	IEA	UniProtKB-KW:KW-0804	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0008283	GO_REF:0000019	IEA	Ensembl:ENSMUSP00000056778	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20140705	Ensembl		
+UniProtKB	A0AVK6	E2F8		GO:0032466	GO_REF:0000024	ISS	UniProtKB:Q58FA4	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0032877	GO_REF:0000024	ISS	UniProtKB:Q58FA4	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0033301	GO_REF:0000024	ISS	UniProtKB:Q58FA4	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0042803	GO_REF:0000019	IEA	Ensembl:ENSMUSP00000056778	F	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20140705	Ensembl		
+UniProtKB	A0AVK6	E2F8		GO:0045944	PMID:22903062	IMP		P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0060707	GO_REF:0000024	ISS	UniProtKB:Q58FA4	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0060718	GO_REF:0000024	ISS	UniProtKB:Q58FA4	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVK6	E2F8		GO:0070365	GO_REF:0000024	ISS	UniProtKB:Q58FA4	P	Transcription factor E2F8	E2F8_HUMAN|E2F8	protein	taxon:9606	20121102	UniProt		
+UniProtKB	A0AVL1	ADAM9		GO:0004222	GO_REF:0000002	IEA	InterPro:IPR001590|InterPro:IPR002870|InterPro:IPR006586	F	ADAM9 protein	A0AVL1_HUMAN|ADAM9	protein	taxon:9606	20140705	InterPro		
+UniProtKB	A0AVL1	ADAM9		GO:0006508	GO_REF:0000002	IEA	InterPro:IPR001590|InterPro:IPR002870|InterPro:IPR006586	P	ADAM9 protein	A0AVL1_HUMAN|ADAM9	protein	taxon:9606	20140705	InterPro		
+UniProtKB	A0AVL1	ADAM9		GO:0008270	GO_REF:0000002	IEA	InterPro:IPR002870	F	ADAM9 protein	A0AVL1_HUMAN|ADAM9	protein	taxon:9606	20140705	InterPro		
+UniProtKB	A0AVT1	UBA6		GO:0005515	PMID:17889673	IPI	UniProtKB:O15205	F	Ubiquitin-like modifier-activating enzyme 6	UBA6_HUMAN|UBA6|MOP4|UBE1L2	protein	taxon:9606	20100325	UniProt		
+UniProtKB	A0AVT1	UBA6		GO:0005524	GO_REF:0000037	IEA	UniProtKB-KW:KW-0067	F	Ubiquitin-like modifier-activating enzyme 6	UBA6_HUMAN|UBA6|MOP4|UBE1L2	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AVT1	UBA6		GO:0005737	GO_REF:0000054	IDA		C	Ubiquitin-like modifier-activating enzyme 6	UBA6_HUMAN|UBA6|MOP4|UBE1L2	protein	taxon:9606	20100607	LIFEdb		
+UniProtKB	A0AVT1	UBA6		GO:0005829	GO_REF:0000033	IBA	PANTHER:PTN000102039	C	Ubiquitin-like modifier-activating enzyme 6	UBA6_HUMAN|UBA6|MOP4|UBE1L2	protein	taxon:9606	20140605	RefGenome		
+UniProtKB	A0AVT1	UBA6		GO:0006511	PMID:17889673	IMP		P	Ubiquitin-like modifier-activating enzyme 6	UBA6_HUMAN|UBA6|MOP4|UBE1L2	protein	taxon:9606	20100326	UniProt		
+UniProtKB	A0AVT1	UBA6		GO:0016567	GO_REF:0000041	IEA	UniPathway:UPA00143	P	Ubiquitin-like modifier-activating enzyme 6	UBA6_HUMAN|UBA6|MOP4|UBE1L2	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AVT1	UBA6		GO:0016567	PMID:17889673	IMP		P	Ubiquitin-like modifier-activating enzyme 6	UBA6_HUMAN|UBA6|MOP4|UBE1L2	protein	taxon:9606	20100326	UniProt		
+UniProtKB	A0AVT1	UBA6		GO:0016874	GO_REF:0000037	IEA	UniProtKB-KW:KW-0436	F	Ubiquitin-like modifier-activating enzyme 6	UBA6_HUMAN|UBA6|MOP4|UBE1L2	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0AVT1	UBA6		GO:0019780	PMID:17889673	IMP		F	Ubiquitin-like modifier-activating enzyme 6	UBA6_HUMAN|UBA6|MOP4|UBE1L2	protein	taxon:9606	20100401	UniProt		
+UniProtKB	A0FGR8	ESYT2		GO:0005509	PMID:24373768	IDA		F	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140527	UniProt		
+UniProtKB	A0FGR8	ESYT2		GO:0005515	PMID:23791178	IPI	UniProtKB:A0FGR9	F	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140708	IntAct	occurs_in(GO:0032541)	
+UniProtKB	A0FGR8	ESYT2		GO:0005515	PMID:23791178	IPI	UniProtKB:Q9BSJ8	F	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140708	IntAct	occurs_in(GO:0032541)	
+UniProtKB	A0FGR8	ESYT2		GO:0005544	PMID:17360437	IDA		F	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20131121	FlyBase		
+UniProtKB	A0FGR8	ESYT2		GO:0005887	PMID:17360437	IDA		C	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20131121	FlyBase		
+UniProtKB	A0FGR8	ESYT2		GO:0006869	GO_REF:0000037	IEA	UniProtKB-KW:KW-0445	P	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0FGR8	ESYT2		GO:0006897	GO_REF:0000037	IEA	UniProtKB-KW:KW-0254	P	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140705	UniProt		
+UniProtKB	A0FGR8	ESYT2		GO:0008429	PMID:24847877	IDA		F	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140527	UniProt		
+UniProtKB	A0FGR8	ESYT2		GO:0016020	PMID:19946888	IDA		C	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140627	UniProt		
+UniProtKB	A0FGR8	ESYT2		GO:0031210	PMID:24847877	IDA		F	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140527	UniProt		
+UniProtKB	A0FGR8	ESYT2		GO:0031227	PMID:23791178	IDA		C	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140528	UniProt		
+UniProtKB	A0FGR8	ESYT2		GO:0031234	PMID:23791178	IMP		C	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140528	UniProt		
+UniProtKB	A0FGR8	ESYT2		GO:0035091	PMID:24847877	IDA		F	Extended synaptotagmin-2	ESYT2_HUMAN|ESYT2|FAM62B|KIAA1228	protein	taxon:9606	20140527	UniProt		

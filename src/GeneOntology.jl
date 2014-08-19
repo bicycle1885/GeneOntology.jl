@@ -9,14 +9,19 @@ export
     # typedef
     Typedef,
 
+    # annotation
+    AnnotationRecord,
+
     # parser
     OBOParser, eachterm, eachtypedef,
+    AnnotaionParser, eachannot,
 
     # graph
     GOGraph, is_a, parents, children
 
 include("term.jl")
 include("typedef.jl")
+include("annotation.jl")
 include("parser.jl")
 include("graph.jl")
 

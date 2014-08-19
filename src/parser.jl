@@ -157,3 +157,70 @@ function parse_def(s::ASCIIString)
     j = searchindex(s, "\"", i+1)
     s[i+1:j-1]
 end
+
+
+# Gene annotation parser
+
+type AnnotaionParser
+    filepath::String
+    stream::IOStream
+    version::ASCIIString
+
+    function AnnotaionParser(filepath::String)
+        stream = open(filepath, "r")
+        finalizer(stream, s -> close(s))
+        version = parse_version(stream)
+        new(filepath, stream, version)
+    end
+end
+
+type EachAnnotRecord
+    stream::IO
+end
+
+eachannot(parser::AnnotaionParser) = EachAnnotRecord(parser.stream)
+start(iter::EachAnnotRecord) = nothing
+done(iter::EachAnnotRecord, _) = eof(iter.stream)
+function next(iter::EachAnnotRecord, _)
+    line = readline(iter.stream)
+    fields = split(line, '\t')
+    fields[end] = rstrip(fields[end])
+
+    AnnotationRecord(
+        fields[1],
+        fields[2],
+        fields[3],
+        split(fields[4], '|'),
+        parseid(fields[5]),
+        split(fields[6], '|'),
+        fields[7],
+        split(fields[8], '|'),
+        namespaceof(fields[9][1]),
+        isempty(fields[10]) ? nothing : convert(ASCIIString, fields[10]),
+        split(fields[11], '|'),
+        fields[12],
+        split(fields[13], '|'),
+        fields[14],
+        fields[15],
+        split(fields[16], ','),
+        isempty(fields[17]) ? nothing : convert(ASCIIString, fields[17])
+    ), nothing
+end
+
+function parse_version(stream::IOStream)
+    local version
+    while true
+        mark(stream)
+        eof(stream) && break
+        line = readline(stream)
+        if line[1] != '!'
+            reset(stream)
+            break
+        end
+        m = match(r"!gaf-version: ([\d\.])+", line)
+        if !is(m, nothing)
+            version = m.captures[1]
+        end
+    end
+    version
+end

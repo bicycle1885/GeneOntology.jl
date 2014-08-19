@@ -7,6 +7,7 @@ let
     @test !isobsolete(term)
     @test go"GO:0000001" == term
     @test go"0000001" == term
+    @test string(term) == "Term(\"GO:0000001\", \"mitochondrion inheritance\")"
 
     obsolete_term = Term("GO:0000005", "ribosomal chaperone activity", obsolete=true)
     @test isobsolete(obsolete_term)

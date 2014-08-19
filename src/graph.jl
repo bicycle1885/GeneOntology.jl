@@ -8,7 +8,7 @@ isequal(tv1::TermVertex, tv2::TermVertex) = isequal(tv1.key, tv2.key)
 ==(tv1::TermVertex, tv2::TermVertex) = isequal(tv1, tv2)
 
 type GOGraph
-    ids::Vector{Int}
+    ids::Vector{TermID}
     upward::IncidenceList{TermVertex,Edge{TermVertex}}
     downward::IncidenceList{TermVertex,Edge{TermVertex}}
 
@@ -47,7 +47,7 @@ function is_a(go::GOGraph, term1::Term, term2::Term)
     visitor.found
 end
 
-function binary_search(ids::Vector{Int}, id::Int)
+function binary_search(ids::Vector{TermID}, id::TermID)
     isempty(ids) && return 0
     l = 1
     n = endof(ids)
@@ -82,7 +82,7 @@ function gograph_builder(filepath::String, mode::Int)
     sort!(terms)
     upward = inclist(TermVertex)
     downward = inclist(TermVertex)
-    ids = Int[]
+    ids = TermID[]
 
     # add term vertices
     for (i, term) in enumerate(terms)

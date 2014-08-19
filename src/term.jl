@@ -11,8 +11,12 @@ const cellular_component = CellularComponentOntology()
 const biological_process = BiologicalProcessOntology()
 const molecular_function = MolecularFunctionOntology()
 
+typealias TermID Int
+
+Base.show(io::IO, id::TermID) = @printf io "GO:%07d" id
+
 immutable Term
-    id::Int
+    id::TermID
     obsolete::Bool
     name::ASCIIString
     namespace::RootOntology
@@ -52,17 +56,28 @@ Base.isequal(term1::Term, term2::Term) = term1.id == term2.id
 ==(term1::Term, term2::Term) = isequal(term1, term2)
 Base.isless(term1::Term, term2::Term) = isless(term1.id, term2.id)
 Base.hash(term::Term) = hash(term.id)
-Base.show(io::IO, term::Term) = @printf io "Term(\"GO:%07d\", \"%s\")" term.id term.name
-Base.showcompact(io::IO, term::Term) = @printf io "GO:%07d" term.id
+Base.show(io::IO, term::Term) = @printf io "Term(\"%s\", \"%s\")" term.id term.name
+Base.showcompact(io::IO, term::Term) = print(io, term.id)
 
 isobsolete(term::Term) = term.obsolete
 
-function parseid(id::ASCIIString)
+function parseid(id::String)
     # The term id is defined as zero-padded 7 decimal digits,
     # which may be preceded by "GO:" string.
     m = match(r"^(?:GO:)?(\d{7})$", id)
     is(m, nothing) && error("invalid term id: '$id'")
     int(m.captures[1])
+end
+
+function namespaceof(namespace::Char)
+    if namespace == 'C'
+        return cellular_component
+    elseif namespace == 'P'
+        return biological_process
+    elseif namespace == 'F'
+        return molecular_function
+    end
+    error("invalid namespace: '$namespace'")
 end
 
 function namespaceof(namespace::ASCIIString)
