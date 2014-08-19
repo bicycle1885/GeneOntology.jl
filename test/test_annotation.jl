@@ -1,5 +1,5 @@
 let
-    parser = AnnotaionParser(expanduser("test/data/gene_association.goa_human"))
+    parser = AnnotaionParser("$testdir/data/gene_association.goa_human")
     annots = Array(AnnotationRecord, 0)
     for annot in eachannot(parser)
         push!(annots, annot)

@@ -1,13 +1,13 @@
 let
-    parser = OBOParser("test/data/go.obo")
-    @test parser.filepath == "test/data/go.obo"
+    parser = OBOParser("$testdir/data/go.obo")
+    @test parser.filepath == "$testdir/data/go.obo"
     @test parser.version == "1.2"
     @test parser.headertags["data-version"] == "releases/2014-08-09"
     @test parser.headertags["auto-generated-by"] == "TermGenie 1.0"
 end
 
 let
-    parser = OBOParser("test/data/go.obo")
+    parser = OBOParser("$testdir/data/go.obo")
     terms = Array(Term, 0)
     typedefs = Array(Typedef, 0)
 
