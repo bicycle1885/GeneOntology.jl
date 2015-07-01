@@ -123,6 +123,11 @@ function tagvalue(line::ASCIIString)
     # TODO: what an ad hoc parser!
     i = searchindex(line, ": ")
     if i == 0
+        # empty tag value
+        if endswith(line, ":")
+            return line, "", true
+        end
+
         # empty strings are dummy
         return "", "", false
     end
